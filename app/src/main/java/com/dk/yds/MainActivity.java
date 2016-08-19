@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import ds.dk.yuoto.libutils.Http.HttpUtils;
 import ds.dk.yuoto.libutils.Http.HttpUtilsCallback;
+import ds.dk.yuoto.libutils.Utils.LogUtils;
 
 /**
  * Created by deshui.yu on 16-8-19.
@@ -39,13 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .execute(new HttpUtilsCallback() {
                             @Override
                             public void success(String response) {
-                                Log.d("yds", "response ---> " + response);
+                                LogUtils.d("yds", "response ---> " + response);
                                 btn1.setText("post_success");
                             }
 
                             @Override
                             public void error(String e) {
-                                Log.d("yds", "error ---> " + e);
+                                LogUtils.d("yds", "error ---> " + e);
                                 btn1.setText("post_error");
                             }
                         });
@@ -55,13 +56,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 HttpUtils.get().url("https://www.baidu.com/s?wd=a").build().execute(new HttpUtilsCallback() {
                     @Override
                     public void success(String response) {
-                        Log.d("yds", "response ---> " + response);
+                        LogUtils.d("yds", "response ---> " + response);
                         btn2.setText("get_success");
                     }
 
                     @Override
                     public void error(String e) {
-                        Log.d("yds", "e ---> " + e);
+                        LogUtils.d("yds", "e ---> " + e);
                         btn2.setText("get_error");
                     }
                 });
